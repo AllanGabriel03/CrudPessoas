@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { PessoaService } from '../../services/pessoa-service';
 
 @Component({
   selector: 'app-formulario',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './formulario.html',
   styleUrl: './formulario.css',
 })
@@ -13,16 +14,27 @@ export class Formulario {
   cpf = ''
   dataNascimento = ''
 
-  constructor(private pessoaService: PessoaService){}
+  constructor(private pessoaService: PessoaService) { }
 
-  save(){
+  save() {
+    console.log(this.nome)
     this.pessoaService.adicionar({
       id: 1,
       nome: this.nome,
-      cpf : this.cpf,
+      cpf: this.cpf,
       email: this.email,
       dataNascimento: this.dataNascimento
+
     })
+
+    this.limpaAtributos()
+  }
+
+  limpaAtributos() {
+    this.nome = ''
+    this.email = ''
+    this.cpf = ''
+    this.dataNascimento = ''
   }
 
 
