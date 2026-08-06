@@ -20,6 +20,10 @@ export const routes: Routes = [
         component: Formulario
     },
     {
+        path: 'cadastro/:id',
+        component: Formulario
+    },
+    {
         path: 'lista',
         component: Lista
     }
