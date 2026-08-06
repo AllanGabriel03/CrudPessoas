@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { PessoaService } from '../../services/pessoa-service';
+import { Pessoa } from '../../models/pessoa';
+
 
 @Component({
   selector: 'app-formulario',
@@ -17,9 +19,9 @@ export class Formulario {
   constructor(private pessoaService: PessoaService) { }
 
   save() {
-    console.log(this.nome)
+    
     this.pessoaService.adicionar({
-      id: 1,
+      id: this.pessoaService.tamanhoArray() +1,
       nome: this.nome,
       cpf: this.cpf,
       email: this.email,
